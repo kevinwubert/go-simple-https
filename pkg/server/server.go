@@ -65,6 +65,7 @@ func parseFlags() {
 
 func Main() {
 	parseFlags()
+	fmt.Println(flgHostname)
 	var m *autocert.Manager
 
 	var httpsSrv *http.Server
@@ -72,6 +73,7 @@ func Main() {
 		hostPolicy := func(ctx context.Context, host string) error {
 			// Note: change to your real host
 			allowedHost := flgHostname
+			fmt.Println(flgHostname)
 			if host == allowedHost {
 				return nil
 			}
