@@ -15,7 +15,7 @@ import (
 
 const (
 	htmlIndex = `<html><body>Welcome!</body></html>`
-	httpPort  = "127.0.0.1:8080"
+	httpPort  = "127.0.0.1:80"
 )
 
 var (
@@ -88,7 +88,7 @@ func Main() {
 		}
 
 		httpsSrv = makeHTTPServer()
-		httpsSrv.Addr = ":1213"
+		httpsSrv.Addr = ":443"
 		httpsSrv.TLSConfig = &tls.Config{GetCertificate: m.GetCertificate}
 
 		go func() {
