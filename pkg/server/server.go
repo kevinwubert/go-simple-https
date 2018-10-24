@@ -58,7 +58,7 @@ func makeHTTPToHTTPSRedirectServer() *http.Server {
 
 func parseFlags() {
 	flag.BoolVar(&flgProduction, "production", false, "if true, we start HTTPS server")
-	flag.BoolVar(&flgRedirectHTTPToHTTPS, "redirect-to-https", false, "if true, we redirect HTTP to HTTPS")
+	flag.BoolVar(&flgRedirectHTTPToHTTPS, "redirecttohttps", false, "if true, we redirect HTTP to HTTPS")
 	flag.StringVar(&flgHostname, "hostname", "www.example.com", "host name for https")
 	flag.Parse()
 }
@@ -66,6 +66,8 @@ func parseFlags() {
 func Main() {
 	parseFlags()
 	fmt.Println(flgHostname)
+	fmt.Println(flgProduction)
+	fmt.Println(flgRedirectHTTPToHTTPS)
 	var m *autocert.Manager
 
 	var httpsSrv *http.Server
