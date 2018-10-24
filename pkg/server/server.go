@@ -19,8 +19,8 @@ const (
 )
 
 var (
-	flgProduction          = false
-	flgRedirectHTTPToHTTPS = false
+	flgProduction          = true
+	flgRedirectHTTPToHTTPS = true
 	flgHostname            = "www.example.com"
 )
 
@@ -57,8 +57,8 @@ func makeHTTPToHTTPSRedirectServer() *http.Server {
 }
 
 func parseFlags() {
-	flag.BoolVar(&flgProduction, "production", false, "if true, we start HTTPS server")
-	flag.BoolVar(&flgRedirectHTTPToHTTPS, "redirecttohttps", false, "if true, we redirect HTTP to HTTPS")
+	// flag.BoolVar(&flgProduction, "production", false, "if true, we start HTTPS server")
+	// flag.BoolVar(&flgRedirectHTTPToHTTPS, "redirecttohttps", false, "if true, we redirect HTTP to HTTPS")
 	flag.StringVar(&flgHostname, "hostname", "www.example.com", "host name for https")
 	flag.Parse()
 }
